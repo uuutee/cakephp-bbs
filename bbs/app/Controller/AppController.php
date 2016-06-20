@@ -36,13 +36,26 @@ class AppController extends Controller {
 	public $components = array(
 		'Session',
 		'Auth' => array(
-			'loginRedirect' => array('controller' => 'members', 'action' => 'login'),
-			'logoutRedirect' => array('controller' => 'members', 'action' => 'login'),
-			'loginAction' => array('controller' => 'members', 'action' => 'login'),
-			'authError' => 'ログインしてください。',
-			'loginError' => 'ログインに失敗しました。',
-			'authorize' => array('Controller'),
-			'authenticate' => array('Form' => array('userModel' => 'Member', 'fields' => array('username' => 'email'), 'scope' => array('Member.flag' => 0)))
+			'loginRedirect'  => array(
+				'controller'     => 'tops',
+				'action'         => 'index'
+			),
+			'logoutRedirect' => array(
+				'controller'     => 'tops',
+				'action'         => 'index'
+			),
+			'loginAction'    => array(
+				'controller'     => 'users',
+				'action'         => 'login'
+			),
+			'authError'      => 'ログインしてください。',
+			'loginError'     => 'ログインに失敗しました。',
+			'authorize'      => array('Controller'),
+			'authenticate'   => array(
+				'Form'           => array(
+					'scope'          => array('User.flag' => 0)
+				)
+			)
 		)
 	);
 	
@@ -51,14 +64,6 @@ class AppController extends Controller {
 	}
 	
 	public function beforeFilter() {
-		// $this->set('member', $this->Auth->User());
-		
-		// キャリア判定
-		if (DEVICE_TYPE === 'mobile' && MT_MOBILE_USE === '1') {
-			//$this->redirect('http://' . $_SERVER['SERVER_NAME'] . '/');
-			$this->layout = 'mobile';
-		} elseif (DEVICE_TYPE === 'sphone' && MT_SPHONE_USE === '1') {
-			$this->layout = 'sphone';
-		}
+		$this->set('user', $this->Auth->User());
 	}
 }

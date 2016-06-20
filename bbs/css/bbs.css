@@ -1,0 +1,43 @@
+/**/
+.threads{}
+.thread{}
+
+hr.section-rule{
+	margin: 60px auto;
+	width: 40%;
+	border: 0;
+	border-top: 1px solid #ddd;
+}
+
+hr.thread-rule{
+	margin-top: 40px;
+	margin-bottom: 40px;
+	border: 0;
+	border-top: 1px solid #eee;	
+}
+
+
+/**/
+.comments{
+	margin-bottom: 40px;
+	padding: 0;
+}
+.comments-content > div{
+}
+.comments-content > div:nth-child(even){
+	background: #eee;
+}
+
+.comment{
+	padding: 20px 10px;
+}
+.comments .comment{
+	padding: 20px 10px 20px 40px;	
+}
+.comment-header{
+	padding-bottom: 10px;
+	font-size: 16px;
+}
+.comment-header .date{
+	font-size: 14px;
+}

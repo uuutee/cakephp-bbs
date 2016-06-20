@@ -9,6 +9,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/module/template/default/parts/header.
 $bread = '<div class="bread"><div class="bread-inner clearfix"><span class="home"><a href="/">' . BREAD_HOMENAME . '</a></span>' . BREAD_SEPARATOR . '<span class="current">' . $title . '</span></div></div>';
 ?>
 
+<link href="/bbs/css/bootstrap.css" rel="stylesheet">
+<link href="/bbs/css/bbs.css" rel="stylesheet">
+<script src="/bbs/js/bootstrap.js"></script>
+
 <?php echo $bread; ?>
 
 <div id="main" class="cf-form"><div id="main-inner">
@@ -16,7 +20,6 @@ $bread = '<div class="bread"><div class="bread-inner clearfix"><span class="home
 
 <?php echo $this->fetch('content'); ?>
 
-<?php echo $this->element('sql_dump');?>
 </div></div><!-- #main -->
 
 <?php

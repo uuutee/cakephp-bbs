@@ -11,7 +11,14 @@ class TopsController extends AppController {
 	
 	public function index() {
 		$this->set('categories', $this->Category->find('all'));
-		$this->set('threads', $this->Thread->find('all'));
-		$this->set('comments', $this->Comment->find('all'));
+
+		$threads = $this->Thread->find(
+			'all',
+			array(
+				'order' => 'id DESC',
+			)
+		);
+		$this->set('threads', $threads);
+		$this->set('title_for_layout', 'BBS');
 	}
 }

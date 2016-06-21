@@ -15,8 +15,6 @@ class ThreadsController extends AppController {
 		$data = $this->Thread->read();
 		$this->set('data', $data);
 		$this->set('title_for_layout', $data['Thread']['title']);
-
-
 	}
 
 	public function add($id = null) {		
